@@ -432,33 +432,139 @@ console.log("4 - Sair");
 let loja = {
     nome: "TechShop",
     saldo: 0,
-    opcao: readline.questionInt("Digite uma opcao do MENU")
+    opcao: readline.questionInt("Digite uma opcao do MENU: ")
 };
 
 loja.produtos = [
-    produto1 = {
+    {
         nome: "Mouse Logitech",
         preco: 249.90,
     },
-    produto2 = {
+    {
         nome: "Teclado Razer",
         preco: 569.90,
     },
-    produto3 = {
+    {
         nome: "Monitor Mancer 260hz",
         preco: 1299.90,
     },
 ];
+
+let produto;
+let preco;
 
 switch (loja.opcao) {
     case 1:
         console.table(loja.produtos)
         break;
     case 2:
-        
-}
+        produto = readline.question("Qual produto deseja comprar?: ");
+        switch (produto) {
+            case "Mouse Logitech":
+                preco = 249.90;
+                loja.saldo += preco;
+                console.log("Produto adicionado ao carrinho.");
+                break;
+            case "Teclado Razer":
+                preco = 569.90;
+                loja.saldo += preco;
+                console.log("Produto adicionado ao carrinho.");
+                break;
+            case "Monitor Mancer 260hz":
+                preco = 1299.90;
+                loja.saldo += preco;
+                console.log("Produto adicionado ao carrinho.");
+                break;
+            default:
+                console.log("Produto nao encontrado")
+        }
+        break;
+    case 3:
+        console.log(`Total no carrinho: R$${loja.saldo}`);
+        break;
+    case 4: 
+        console.log(`Obrigado por visitar a TechShop!.`);
+        break;
+    default:
+        console.log("Opcao invalida");
+};
 
 
 
 console.log("_______________________________");
 
+
+//VERSAO COM LOOP
+//(FEITA POR MIM EM PARCERIA COM MEU PARCEIRO MANO GPT)
+
+// let loja = {
+//     nome: "TechShop",
+//     saldo: 0,
+//     carrinho: [],
+//     produtos: [
+//         { nome: "Mouse Logitech", preco: 249.90 },
+//         { nome: "Teclado Razer", preco: 569.90 },
+//         { nome: "Monitor Mancer 260hz", preco: 1299.90 }
+//     ]
+// };
+
+// let opcao = 0;
+
+// while (opcao !== 4) {
+
+//     console.log("\n===== MENU =====");
+//     console.log("1 - Ver produtos");
+//     console.log("2 - Comprar");
+//     console.log("3 - Ver carrinho");
+//     console.log("4 - Sair");
+
+//     opcao = readline.questionInt("Escolha uma opcao: ");
+
+//     switch (opcao) {
+
+//         case 1:
+//             console.table(loja.produtos);
+//             break;
+
+//         case 2:
+//             console.log("\nEscolha um produto:");
+//             loja.produtos.forEach((p, i) => {
+//                 console.log(`${i + 1} - ${p.nome} (R$${p.preco})`);
+//             });
+
+//             let escolha = readline.questionInt("Digite o numero: ");
+
+//             if (escolha >= 1 && escolha <= loja.produtos.length) {
+//                 let produto = loja.produtos[escolha - 1];
+
+//                 loja.carrinho.push(produto);
+//                 loja.saldo += produto.preco;
+
+//                 console.log(`${produto.nome} adicionado ao carrinho.`);
+//             } else {
+//                 console.log("Produto invalido.");
+//             }
+//             break;
+
+//         case 3:
+//             console.log("\n===== CARRINHO =====");
+
+//             if (loja.carrinho.length === 0) {
+//                 console.log("Carrinho vazio.");
+//             } else {
+//                 loja.carrinho.forEach((p, i) => {
+//                     console.log(`${i + 1} - ${p.nome} (R$${p.preco})`);
+//                 });
+
+//                 console.log(`Total: R$${loja.saldo.toFixed(2)}`);
+//             }
+//             break;
+
+//         case 4:
+//             console.log("Obrigado por visitar a TechShop!");
+//             break;
+
+//         default:
+//             console.log("Opcao invalida.");
+//     }
+// }
