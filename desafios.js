@@ -39,103 +39,101 @@ let readline = require(`readline-sync`);
 
 // → Seu código aqui:
 
-console.log(`--------MENU DE PRATOS--------
-1 – Frango Grelhado  R$ 32,00
-2 – Filé ao Molho    R$ 45,00
-3 – Massa Italiana   R$ 28,00
-4 – Salada Caesar    R$ 22,00
-5 – Sopa do Dia      R$ 18,00
-    `);
+// console.log(`--------MENU DE PRATOS--------
+// 1 – Frango Grelhado  R$ 32,00
+// 2 – Filé ao Molho    R$ 45,00
+// 3 – Massa Italiana   R$ 28,00
+// 4 – Salada Caesar    R$ 22,00
+// 5 – Sopa do Dia      R$ 18,00
+//     `);
 
-console.log(`--------MENU DE BEBIDAS-------
-1 – Suco Natural     R$ 9,00
-2 – Refrigerante     R$ 7,00
-3 – Água             R$ 4,00
-4 – Sem bebida       R$ 0,00   
-    `);
+// console.log(`--------MENU DE BEBIDAS-------
+// 1 – Suco Natural     R$ 9,00
+// 2 – Refrigerante     R$ 7,00
+// 3 – Água             R$ 4,00
+// 4 – Sem bebida       R$ 0,00   
+//     `);
 
-let usuario = {
-    nome: readline.question("Digite seu nome: "),
-    pratoDesejado: readline.questionInt("Digite o numero correspondente do prato desejado: "),
-    bebidaDesejada: readline.questionInt("Digite o numero correpondente da bebida desejada: ")
-};
+// let usuario = {
+//     nome: readline.question("Digite seu nome: "),
+//     pratoDesejado: readline.questionInt("Digite o numero correspondente do prato desejado: "),
+//     bebidaDesejada: readline.questionInt("Digite o numero correpondente da bebida desejada: ")
+// };
 
-let pedido = {
-    nome: usuario.nome,
-    nomePrato: "",
-    precoPrato: 0,
-    nomeBebida: "",
-    precoBebida: 0,
-    total: 0
-};
+// let pedido = {
+//     nome: usuario.nome,
+//     nomePrato: "",
+//     precoPrato: 0,
+//     nomeBebida: "",
+//     precoBebida: 0,
+//     total: 0
+// };
 
-switch (usuario.pratoDesejado) {
-    case 1:
-        pedido.nomePrato = "Frango grelhado";
-        pedido.precoPrato = 32;
-        pedido.total += pedido.precoPrato;
-        break;
-    case 2:
-        pedido.nomePrato = "Filé ao molho";
-        pedido.precoPrato = 45;
-        pedido.total += pedido.precoPrato;
-        break;
-    case 3:
-        pedido.nomePrato = "Massa Italiana";
-        pedido.precoPrato = 28;
-        pedido.total += pedido.precoPrato;
-        break;
-    case 4:
-        pedido.nomePrato = "Salada Caesar";
-        pedido.precoPrato = 22;
-        pedido.total += pedido.precoPrato;
-        break;
-    case 5:
-        pedido.nomePrato = "Sopa do dia";
-        pedido.precoPrato = 18;
-        pedido.total += pedido.precoPrato;
-        break;
-    default:
-        console.log("Opcao invalida")
-};
+// switch (usuario.pratoDesejado) {
+//     case 1:
+//         pedido.nomePrato = "Frango grelhado";
+//         pedido.precoPrato = 32;
+//         pedido.total += pedido.precoPrato;
+//         break;
+//     case 2:
+//         pedido.nomePrato = "Filé ao molho";
+//         pedido.precoPrato = 45;
+//         pedido.total += pedido.precoPrato;
+//         break;
+//     case 3:
+//         pedido.nomePrato = "Massa Italiana";
+//         pedido.precoPrato = 28;
+//         pedido.total += pedido.precoPrato;
+//         break;
+//     case 4:
+//         pedido.nomePrato = "Salada Caesar";
+//         pedido.precoPrato = 22;
+//         pedido.total += pedido.precoPrato;
+//         break;
+//     case 5:
+//         pedido.nomePrato = "Sopa do dia";
+//         pedido.precoPrato = 18;
+//         pedido.total += pedido.precoPrato;
+//         break;
+//     default:
+//         console.log("Opcao invalida")
+// };
 
-switch (usuario.bebidaDesejada) {
-    case 1:
-        pedido.nomeBebida = "Suco natural";
-        pedido.precoBebida = 9;
-        pedido.total += pedido.precoBebida;
-        break;
-    case 2:
-        pedido.nomeBebida = "Refrigerante";
-        pedido.precoBebida = 7;
-        pedido.total += pedido.precoBebida;
-        break;
-    case 3:
-        pedido.nomeBebida = "Água";
-        pedido.precoBebida = 4;
-        pedido.total += pedido.precoBebida;
-        break;
-    case 4:
-        pedido.nomeBebida = "Sem bebida";
-        pedido.precoBebida = 0;
-        pedido.total += pedido.precoBebida;
-        break;
-    default:
-        console.log("Opcao invalida")
-};
+// switch (usuario.bebidaDesejada) {
+//     case 1:
+//         pedido.nomeBebida = "Suco natural";
+//         pedido.precoBebida = 9;
+//         break;
+//     case 2:
+//         pedido.nomeBebida = "Refrigerante";
+//         pedido.precoBebida = 7;
+//         break;
+//     case 3:
+//         pedido.nomeBebida = "Água";
+//         pedido.precoBebida = 4;
+//         break;
+//     case 4:
+//         pedido.nomeBebida = "Sem bebida";
+//         pedido.precoBebida = 0;
+//         break;
+//     default:
+//         console.log("Opcao invalida")
+// };
 
-let pagamento = readline.keyInYN("Pagamento via pix?: ");
+// pedido.total += pedido.precoBebida;
 
-let valorFinal;
+// let pagamento = readline.keyInYN("Pagamento via pix?: ");
 
-switch (pagamento) {
-    case true:
-        valorFinal = pedido.total * 0.9
-        console.log(`Valor final com desconto: R$${valorFinal}`)
-        break;
-    case false:
-        console.log(`Valor final sem desconto: R$${pedido.total}.`)    
-};
+// let valorFinal;
+
+// switch (pagamento) {
+//     case true:
+//         valorFinal = pedido.total * 0.9
+//         console.log(`Valor final com desconto: R$${valorFinal}`)
+//         break;
+//     case false:
+//         console.log(`Valor final sem desconto: R$${pedido.total}.`)    
+// };
 
 
 console.log("_______________________________");
@@ -168,6 +166,76 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// let valor = readline.questionFloat("Qual valor deseja converter?: ");
+// console.log(`==== MENU DE CONVERSAO ====
+// 1 - Km para Milhas
+// 2 - Milhas para Km
+// 3 - Celsius para Fahrenheit
+// 4 - Fahrenheit para Celsius
+// 5 - Kg para Libras
+// 6 - Libras para Kg`);
+// let tipo = readline.questionInt("Digite qual tipo de conversao deseja: ")
+
+// let object = {
+//     tipo: "",
+//     valorOriginal: valor,
+//     unidadeOriginal: "",
+//     resultado: 0,
+//     unidadeResultado: ""
+// };
+
+// let calculo;
+// let und1;
+// let und2;
+
+// switch (tipo) {
+//     case 1:
+//         calculo = valor * 0.621371;
+//         und1 = "km";
+//         und2 = "mi";
+//         object.tipo = "Km para Milhas";
+//         break;
+//     case 2:
+//         calculo = valor * 1.60934;
+//         und1 = "mi";
+//         und2 = "km";
+//         object.tipo = "Milhas para Km";
+//         break;
+//     case 3:
+//         calculo = (valor * 9/5) + 32;
+//         und1 = "°C";
+//         und2 = "°F";
+//         object.tipo = "Celsius para Fahrenheit";
+//         break;
+//     case 4:
+//         calculo = (valor - 32) * 5/9;
+//         und1 = "°F";
+//         und2 = "°C";
+//         object.tipo = "Fahrenheit para Celsius";
+//         break;
+//     case 5:
+//         calculo = valor * 2.20462;
+//         und1 = "kg";
+//         und2 = "lb";
+//         object.tipo = "Kg para Libras";
+//         break;
+//     case 6:
+//         calculo = valor / 2.20462;
+//         und1 = "lb";
+//         und2 = "kg";
+//         object.tipo = "Libras para Kg";
+//         break;
+//     default:
+//         console.log("Tipo de conversão inválido.");
+// };
+
+// object.unidadeOriginal = und1;
+// object.unidadeResultado = und2;
+// object.resultado = calculo;
+
+// console.table(object);
+
+// console.log(`${object.valorOriginal}${object.unidadeOriginal} = ${object.resultado}${object.unidadeResultado}`);
 
 console.log("_______________________________");
 
@@ -187,6 +255,66 @@ console.log("_______________________________");
 // e) Exiba o resultado final.
 
 // → Seu código aqui:
+
+
+// while(true){
+
+//     const jogada = ["pedra" , "papel", "tesoura"];
+//     const computador = jogada[Math.floor(Math.random() * 3)];
+
+//     console.log(`
+//         1 - PEDRA
+//         2 - PAPEL
+//         3 - TESOURA
+//     `);
+//     const usuario = readline.questionInt("Digite a sua jogada: ");
+
+//     let resultadoJogo = "";
+
+//     switch (usuario) {
+//         case 1:
+//         if (computador === "pedra" && usuario === 1) {
+//                 resultadoJogo = "Empate"
+//         } else if (computador === "papel" && usuario === 1) {
+//                 resultadoJogo = "Jogador PC venceu!!!"
+//         } else if (computador === "tesoura" && usuario === 1) {
+//                 resultadoJogo = "Jogador Usuario venceu!!!"
+//         };
+//         break;
+//         case 2:
+//             if (computador === "pedra" && usuario === 2) {
+//                 resultadoJogo = "Jogador usuario venceu!!!"
+//             } else if (computador === "papel" && usuario === 2) {
+//                 resultadoJogo = "Empate"
+//             } else if (computador === "tesoura" && usuario === 2) {
+//                 resultadoJogo = "Jogador PC venceu!!!"
+//             };
+//             break;
+//         case 3:
+//             if (computador === "pedra" && usuario === 3) {
+//                 resultadoJogo = "Jogador PC venceu!!!"
+//             } else if (computador === "papel" && usuario === 3) {
+//                 resultadoJogo = "Jogador Usuario venceu!!!"
+//             } else if (computador === "tesoura" && usuario === 3) {
+//                 resultadoJogo = "Empate"
+//             };
+//             break;
+//         default:
+//             if (usuario === 0) {
+//                 console.log("Operação invalida")
+//         } else if (usuario > 3) {
+//                 console.log("Operação invalida")
+//         };
+//     };
+
+//     if (resultadoJogo === "") {
+//         console.log("Tente outra vez");
+//     } else {
+//         console.log(`Jogada do computador é: ${computador}
+//     Jogada do Usuario: ${usuario}
+//     Resultado do jogo: ${resultadoJogo}`);
+//     };
+// };
 
 
 console.log("_______________________________");
@@ -221,5 +349,75 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+// console.log(`
+// ========= SUPORTE TECNICO =========
+// 1 - Internet
+// 2 - TV
+// 3 - Telefone
+// 4 - Falar com Atendente
+// 0 - Encerrar
+// `);
+
+// let opcao = readline.questionInt("Digite a opcao desejada: ");
+// let subMenu1;
+// let subMenu2;
+
+// switch (opcao) {
+//     case 1:
+//         console.log(`
+//         ========= SUPORTE TECNICO =========
+//         1 - Sem conexao
+//         2 - Conexao lenta
+//         3 - Wi-fi nao aparece
+//         `);
+//         subMenu1 = readline.questionInt("Digite a opcao desejada: ");
+//         switch (subMenu1) {
+//             case 1:
+//                 console.log("Por favor reinicie seu modem");
+//                 break;
+//             case 2:
+//                 console.log("Por favor aguarde o atendente");
+//                 break;
+//             case 3:
+//                 console.log("Por favor reinicie seu modem e seu aparelho");
+//                 break;
+//             default:
+//                 console.log("Opcao invalida");
+//             };
+//         break;
+//     case 2: 
+//         console.log(`
+//         ========= SUPORTE TECNICO =========
+//         1 - Sem sinal
+//         2 - Imagem ruim
+//         3 - Canais sumidos
+//         `);
+//         subMenu2 = readline.questionInt("Digite a opcao desejada: ");
+//         switch (subMenu2) {
+//             case 1:
+//                 console.log("Por favor reinicie seu aparelho");
+//                 break;
+//             case 2:
+//                 console.log("Por favor reinicie sua TV");
+//                 break;
+//             case 3:
+//                 console.log("Por favor desliga o aparelho da tomada e aguarde 3 minutos para religar");
+//                 break;
+//             default:
+//                 console.log("Opcao invalida");
+//             };
+//         break;
+//     case 3:
+//         console.log("Por favor aguarde na linha");
+//         break;
+//     case 4:
+//         console.log("Por favor aguarde na linha");
+//         break;
+//     case 0:
+//         console.log("Atendimento encerrado.");
+//         break;
+//     default:
+//         console.log("Opcao invalida");
+// };
 
 console.log("_______________________________");
