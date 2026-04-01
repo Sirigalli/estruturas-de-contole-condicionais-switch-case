@@ -419,5 +419,214 @@ console.log("_______________________________");
 //     default:
 //         console.log("Opcao invalida");
 // };
+console.log("_______________________________");
+
+
+// ------------------------------------------------------------
+// DESAFIO 5 – TÁXI OU APP?
+// ------------------------------------------------------------
+// O usuário informa a distância em km e o horário (dia ou noite).
+// O programa calcula o preço estimado no táxi e em um app de corridas
+// e recomenda a opção mais barata.
+//
+// Tabela:
+//   Táxi: R$5 bandeirada + R$3/km (noite: R$4/km)
+//   App:  R$2 taxa fixa  + R$2/km (noite: R$2.50/km)
+
+// → Seu código aqui:
+
+// let distancia = readline.questionFloat("Digite a distancia que sera percorrida: ");
+// let horario = readline.questionInt("A corrida sera de dia ou noite (Dia = 1 | noite = 2): ");
+
+// let precoApp;
+// let precoTaxi;
+
+// switch (horario) {
+//     case 1:
+//         precoTaxi = 5 + (3 * distancia);
+//         precoApp = 2 + (2 * distancia);
+//         break;
+//     case 2:
+//         precoTaxi = 2 + (4 * distancia);
+//         precoApp = 2 + (2.5 * distancia);
+//         break;
+//     default:
+//         console.log("Horario invalido");
+// };
+
+// console.log(`
+// Preço do Taxi: R$${precoTaxi}.
+// Preço do App: R$${precoApp}
+// `)
+
+// if (precoApp > precoTaxi) {
+//     console.log("Preco do Taxi recomendado ao usuario!")
+// } else if (precoApp < precoTaxi) {
+//     console.log("Preco do app recomendado ao usuario!")
+// } else {
+//     console.log("Precos iguais.")
+// };
+
+
+
+
+console.log("_______________________________");
+
+
+// ------------------------------------------------------------
+// DESAFIO 6 – CRIE SEU PERSONAGEM DE RPG
+// ------------------------------------------------------------
+// O usuário responde 3 ou mais perguntas de multipla escolha (crie outras se quiser)
+//  ex: prefere magia ou força?
+//      prefere ataque ou defesa?
+//      prefere floresta ou cidade?
+//      prefere dia ou noite?
+//      prefere furtividade ou agressividade?
+//      prefere ataque a distância ou corpo a corpo?
+// Com base nas respostas, o programa revela uma classe de personagem
+// (guerreiro, mago, arqueiro, ladino, etc).
+//
+// Você pode criar um sistema de atribuição de pontos para cada resposta
+// e determinar a classe final com base na pontuação total,
+// ou simplesmente fazer verificações diretas. Use a criatividade para resolver este desafio.
+
+// → Seu código aqui:
+
+
+let mago = {
+    magia: 0,
+    ataque: 0,
+    cidade: 0,
+    diurno: 0,
+    agressividade: 0,
+    ataqueDistancia: 0
+};
+
+let elfo = {
+    magia: 0,
+    defesa: 0,
+    floresta: 0,
+    diurno: 0,
+    furtividade: 0,
+    ataqueDistancia: 0
+};
+
+let guerreiro = {
+    forca: 0,
+    ataque: 0,
+    cidade: 0,
+    diurno: 0,
+    agressividade: 0,
+    corpoACorpo: 0
+};
+
+let reptiliano = {
+    forca: 0,
+    ataque: 0,
+    floresta: 0,
+    noturno: 0,
+    agressividade: 0,
+    corpoACorpo: 0
+};
+
+    console.log(`
+      ------ CRIACAO DE PERSONAGEM ------
+CRIE SEU PERSONAGEM BASEADO COM SUAS ESTATISTICAS
+`);
+
+console.log(`
+--- HABILIDADE ---
+    1 - MAGIA
+    2 - FORCA
+`)
+let habilidade = readline.questionInt("Digite a opcao desejada: ");
+console.log(`
+--- ATRIBUTO ---
+    1 - ATAQUE
+    2 - DEFESA
+`)
+let atributo = readline.question("Digite a opcao desejada: ");
+console.log(`
+--- AMBIENTE ---
+    1 - FLORESTA
+    2 - CIDADE
+`)
+let ambiente = readline.question("Digite a opcao desejada: ");
+console.log(`
+--- HABITOS ---
+    1 - DIURNO
+    2 - NOTURNO
+`)
+let diaOuNoite = readline.question("Digite a opcao desejada: ");
+console.log(`
+--- COMBATE ---
+    1 - FURTIVIDADE
+    2 - AGRESSIVIDADE
+`)
+let combate = readline.question("Digite a opcao desejada: ");
+console.log(`
+--- TIPO DE ATAQUE ---
+    1 - ATAQUE A DISTANCIA
+    2 - ATAQUE CORPO A CORPO
+`)
+let especial = readline.question("Digite a opcao desejada: ");
+
+
+if (habilidade === 1) {
+    mago.magia++;
+    elfo.magia++;
+} else {
+    guerreiro.forca++;
+    reptiliano.forca++;
+};
+
+if (atributo === 1) {
+    mago.ataque++;
+    guerreiro.ataque++;
+    reptiliano.ataque++;
+} else {
+    elfo.defesa++;
+};
+
+if (ambiente === 1) {
+    mago.cidade++;
+    guerreiro.cidade++;
+} else {
+    reptiliano.floresta++;
+    elfo.floresta++;
+};
+
+if (diaOuNoite === 1) {
+    elfo.furtividade++;
+} else {
+    mago.agressividade++;
+    guerreiro.agressividade++;
+    reptiliano.agressividade++;
+};
+
+if (combate === 1) {
+    elfo.ataqueDistancia++;
+    mago.ataqueDistancia++;
+} else {
+    guerreiro.corpoACorpo++;
+    reptiliano.corpoACorpo++;
+};
+
+const magoSoma = Object.values(mago).reduce((acc, curr) => acc + curr, 0);
+const elfosoma = Object.values(elfo).reduce((acc, curr) => acc + curr, 0);
+const guerreiroSoma = Object.values(guerreiro).reduce((acc, curr) => acc + curr, 0);
+const reptilianoSoma = Object.values(reptiliano).reduce((acc, curr) => acc + curr, 0);
+
+console.log(`
+total de atributos do mago: ${magoSoma}.
+total de atributos elfo: ${elfosoma}.
+total de atributos guerreiro: ${guerreiroSoma}.
+total de atributos reptiliano: ${reptilianoSoma}.
+`)
+
+
+
+
+
 
 console.log("_______________________________");
